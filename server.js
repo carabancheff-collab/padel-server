@@ -7,14 +7,13 @@ app.get("/", (req, res) => {
   res.send("Padel Server Running 🎾");
 });
 
+app.get("/test", (req, res) => {
+  res.json({ status: "Server is alive 🚀" });
+});
+
 app.post("/process-video", (req, res) => {
-  const { videoUrl, playerName } = req.body;
-
-  console.log("Processing:", playerName, videoUrl);
-
-  // Aquí luego llamaremos a la IA
-
-  res.json({ status: "received" });
+  console.log("Received:", req.body);
+  res.json({ status: "Video request received ✅" });
 });
 
 const PORT = process.env.PORT || 3000;
